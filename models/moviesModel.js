@@ -16,7 +16,7 @@ class MoviesModel{
     async getMovieById(id){
         try {
             const result = await connection.query(
-                `select * from movie where movie_id = ?`, [id]
+                'select * from movie where movie_id = ?', [id]
             )
             return result;
         } catch (error) {
@@ -24,7 +24,14 @@ class MoviesModel{
         }
         // return movies.find(element => element.id ==id);
     }
-    removeMovie(id){
+    async removeMovie(id){
+        try {
+            const result = await connection.query(
+                
+            )
+        } catch (error) {
+            console.log(error);
+        }
         // const index = movies.findIndex(element => element.id ==id);
         // movies.splice(index,1);
         // return;
