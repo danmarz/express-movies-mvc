@@ -1,0 +1,78 @@
+POST http://localhost:3000/movies
+Content-Type: application/json
+
+{
+      "id": 11,
+      "title": "Curso Back-End Web 2"
+}
+
+###########
+
+GET http://localhost:3000/movies
+
+###########
+
+GET https://api-movies-rgl.herokuapp.com/rutas/?origen=BCN&&destino=MOW
+Authorization:bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNweWRlciIsImlhdCI6MTYzMzYwNzAzMH0.a5VDZGenqzKVI0VbLUP8k2Lh43ogahbnbHICcblIZRI
+
+... body {
+      [{ori,destino, airport, avion},{ori,de}]
+
+}
+############
+GET https://api-movies-rgl.herokuapp.com/users/misRutas
+Authorization: 
+
+
+POST https://api-movies-rgl.herokuapp.com/users/misRutas
+Authorization: token
+
+{
+
+     [{ori,destino, airport, avion},{ori,de}]
+
+}
+
+GET http://localhost:3000/holapaola
+
+############
+
+GET http://localhost:3000/movies/1
+
+############
+
+DELETE  http://localhost:3000/movies/2
+
+############
+
+DELETE  http://localhost:3000/movies/
+Content-Type: application/json
+
+{
+      "id": 1
+}
+
+############
+
+
+
+PUT http://localhost:3000/movies/1
+Content-Type: application/json
+
+
+{
+      "id": 1,
+      "title": "Curso Back-End Web"
+}
+
+##########
+DELETE http://localhost:3000/movies
+Content-Type: application/json
+Authorization: bearer 1234
+
+{
+      "id":1
+}
+
+
+GET http://..../routes/m

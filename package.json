@@ -1,0 +1,25 @@
+{
+  "name": "express-movies-mvc",
+  "version": "1.0.0",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "start": "node -r dotenv/config server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "http-errors": "^1.8.0",
+    "jsonwebtoken": "^8.5.1",
+    "mysql2": "^2.3.2"
+  },
+  "devDependencies": {
+    "jest": "^27.2.4"
+  },
+  "description": ""
+}

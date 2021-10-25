@@ -1,0 +1,33 @@
+POST http://localhost:3000/users/register
+Content-Type: application/json
+
+{
+    "username":"spyder",
+    "password":"man"
+}
+##########
+POST http://localhost:3000/users/login
+Content-Type: application/json
+
+{
+    "username":"spyder",
+    "password":"man"
+}
+
+############
+POST https://api-movies-rgl.herokuapp.com/users/register
+Content-Type: application/json
+
+{
+    "username":"spyder",
+    "password":"man"
+}
+
+############
+POST https://api-movies-rgl.herokuapp.com/users/login
+Content-Type: application/json
+
+{
+    "username":"spyder",
+    "password":"man"
+}
