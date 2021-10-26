@@ -8,7 +8,7 @@ const router = Router();
 // router.use('/register',authHandler.encryptPassword);
 
 router.route('/register')
-      .post(authHandler.encryptPassword)
+      // .post(authHandler.encryptPassword)
       .post(userController.register);
 
 router.route('/login')

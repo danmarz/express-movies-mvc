@@ -3,7 +3,7 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import userModel from "../models/userModel.js";
 
-
+const SECRET = process.env.SECRET || 'misecreto';
 
 const encryptPassword = async (req, res, next) => {
     try {
@@ -41,7 +41,7 @@ const getTokenFrom = request => {
 }
 
 
-const tokenVerify = token => jwt.verify(token, process.env.SECRET);
+const tokenVerify = token => jwt.verify(token, SECRET);
 
 const authUser = async (req, res, next) => {
 
@@ -61,7 +61,8 @@ const authUser = async (req, res, next) => {
 
 const generateToken = username => {
 
-    return jwt.sign({username: username},process.env.SECRET);
+    // return jwt.sign({username: username},process.env.SECRET);
+    return jwt.sign({username: username},SECRET);
   
 
 }

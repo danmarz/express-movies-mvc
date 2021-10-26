@@ -1,22 +1,22 @@
 // import movies from '../data/movies.js';
 import connection from '../mysql/dbManager.js';
 
-class MoviesModel{
-    async getMovies(){
+class MoviesModel {
+    async getMovies() {
         try {
             const result = await connection.query(
-                `select * from movie`
+                `select movie_id, title, poster, synopsis, genres, year, director, actors from movie;`
             )
             return result;
         } catch (error) {
-            
+
         }
         // return movies;        
     }
-    async getMovieById(id){
+    async getMovieById(id) {
         try {
             const result = await connection.query(
-                'select * from movie where movie_id = ?', [id]
+                'select movie_id, title, poster, synopsis, genres, year, director, actors from movie where movie_id = ?', [id]
             )
             return result;
         } catch (error) {
@@ -24,11 +24,12 @@ class MoviesModel{
         }
         // return movies.find(element => element.id ==id);
     }
-    async removeMovie(id){
+    async removeMovie(id) {
         try {
             const result = await connection.query(
-                
+                'delete from movie where movie_id = ?', [id]
             )
+            return result;
         } catch (error) {
             console.log(error);
         }
