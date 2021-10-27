@@ -3,13 +3,14 @@
   "version": "1.0.0",
   "main": "app.js",
   "type": "module",
+  "description": "El módulo 1 del curso de backend web consiste en utilizar un lenguaje de programación para crear el backend de una aplicación web.",
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "start": "node -r dotenv/config server.js"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "dan dumitrescu",
+  "license": "MIT",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "dotenv": "^10.0.0",
@@ -21,5 +22,7 @@
   "devDependencies": {
     "jest": "^27.2.4"
   },
-  "description": ""
+  "engines": {
+    "node": "16.10.0"
+  }
 }
