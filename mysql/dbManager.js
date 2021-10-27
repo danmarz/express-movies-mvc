@@ -2,7 +2,6 @@ import mysql from 'mysql2/promise';
 import { config } from '../config.js';
 
 class MySqlManager {
-    //create connection
 
     constructor(config) {
         this.db = config.db;
@@ -10,19 +9,15 @@ class MySqlManager {
 
     async _createConnection(db) {
         try {
-
             this.connection = await mysql.createConnection(db);
         } catch (error) {
             throw error;
         }
     }
 
-    //drop connection
-
     async _dropConnection() {
         this.connection.end();
     }
-    //query
 
     async query(sql, params) {
         try {

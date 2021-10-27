@@ -11,7 +11,6 @@ class MoviesModel {
         } catch (error) {
 
         }
-        // return movies;        
     }
     async getMovieById(id) {
         try {
@@ -22,7 +21,6 @@ class MoviesModel {
         } catch (error) {
             console.log(error);
         }
-        // return movies.find(element => element.id ==id);
     }
     async removeMovie(id) {
         try {
@@ -33,9 +31,6 @@ class MoviesModel {
         } catch (error) {
             console.log(error);
         }
-        // const index = movies.findIndex(element => element.id ==id);
-        // movies.splice(index,1);
-        // return;
     }
 }
 

@@ -1,6 +1,5 @@
 import app from "./app.js";
 
-const PORT = process.env.PORT || 3000;
-const SECRET = process.env.SECRET || 'misecreto';
+const startupMessage = process.env.PORT ? `listening on ${process.env.PORT}` : '>>>>> .env file is missing (PORT & SECRET required!!) <<<<<'
 
-app.listen(PORT,()=>console.log(`listening on ${PORT}`));
+app.listen(process.env.PORT, () => console.log(startupMessage));

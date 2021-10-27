@@ -3,8 +3,6 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import userModel from "../models/userModel.js";
 
-const SECRET = process.env.SECRET || 'misecreto';
-
 const encryptPassword = async (req, res, next) => {
     try {
         const saltRounds = 10;
@@ -33,7 +31,7 @@ const getTokenFrom = request => {
     const authorization = request.get('authorization');
 
     if (authorization && authorization.toLowerCase().startsWith('bearer ')) {
-        
+
         return authorization.substring(7);
     } else {
         return null;
@@ -52,7 +50,7 @@ const authUser = async (req, res, next) => {
     if (!token || !decodedToken.username) {
         next(HttpError(401, { message: 'token invalid or missing' }))
     } else {
-        const user = userModel.getUser({username:decodedToken.username});
+        const user = userModel.getUser({ username: decodedToken.username });
         user === undefined ? next(HttpError(401, { message: 'El token no es correcto' })) :
             next();
     }
@@ -60,11 +58,7 @@ const authUser = async (req, res, next) => {
 }
 
 const generateToken = username => {
-
-    // return jwt.sign({username: username},process.env.SECRET);
-    return jwt.sign({username: username},SECRET);
-  
-
+    return jwt.sign({ username: username }, process.env.SECRET);
 }
 
 

@@ -1,4 +1,3 @@
-// import users from '../data/users.js';
 import connection from '../mysql/dbManager.js';
 
 class User {
@@ -7,14 +6,13 @@ class User {
         const result = await connection.query(
             `select check_user(?,?)`,
             [username, password])
-        // return result[0]['check_user(?,?)'];
         return result;
     }
 
     async createUser(user) {
         try {
             const result = await connection.query(
-                'call insert_user(?,?,?,@result)', [user.username, user.password, user.role], (err, rows) => { if (err) throw err }
+                'call insert_user(?,?,?)', [user.username, user.password, user.role], (err, rows) => { if (err) throw err }
             )
             return result;
         } catch (error) {
