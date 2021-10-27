@@ -5,7 +5,7 @@ const router = Router();
 
 router.route('/')
         .get(moviesController.getAllMovies)
-//  .post(moviesController.insertMovie)
+        .post(moviesController.insertMovie)
 
 router.route('/:id')
         .get(moviesController.getMovieById)

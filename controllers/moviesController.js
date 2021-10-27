@@ -23,7 +23,13 @@ const removeMovie = async (req, res, next) => {
     res.status(200).json({ result: 'deleted successfully' });
 }
 
-
+// const insertMovie = async (req, res, next) => {
+//     try {
+//         const body = req.body;
+//     } catch (error) {
+//         next(error)
+//     }
+// }
 export default {
     getAllMovies,
     getMovieById,
