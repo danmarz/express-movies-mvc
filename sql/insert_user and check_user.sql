@@ -45,7 +45,7 @@ DELIMITER ;
 set @result = '';
 call insert_user('Dani', '1234','user', @result);
 call insert_user('peter pan', '1234','user', @result);
-call insert_user('Dani', '1234','user');
+call insert_user('tom', '1234','user',@result);
 select CAST(AES_DECRYPT(password, (select secret from secret)) AS CHAR(10000) CHARACTER SET utf8mb4) from user;
 select * from user;
 select @result;
@@ -78,5 +78,7 @@ END $$
 DELIMITER ;
 select CAST(aes_decrypt(password, (SELECT secret FROM secret)) AS char(100) character SET utf8mb4) from user where username = 'Dani';
 select check_user('Dani','1234');
+select check_user('jerry2','jerry');
+
 select check_user('Dani','12345');
 select check_user('peter pan','1234');

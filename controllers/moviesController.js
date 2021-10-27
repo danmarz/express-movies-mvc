@@ -1,7 +1,7 @@
 import moviesModel from '../models/moviesModel.js';
 import HttpError from 'http-errors';
 
-const getAllMovies = async (req, res) => {
+const getAllMovies = async (req, res, next) => {
     const movies = await moviesModel.getMovies();
 
     res.json(movies);

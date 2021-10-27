@@ -1,39 +1,40 @@
 import mysql from 'mysql2/promise';
-import {config} from '../config.js';
+import { config } from '../config.js';
 
 class MySqlManager {
     //create connection
 
-    constructor(config){
+    constructor(config) {
         this.db = config.db;
     }
 
-    async _createConnection(db){
+    async _createConnection(db) {
         try {
-            
+
             this.connection = await mysql.createConnection(db);
         } catch (error) {
-            console.log(error);
+            throw error;
         }
     }
 
     //drop connection
 
-    async _dropConnection(){
+    async _dropConnection() {
         this.connection.end();
     }
     //query
 
-    async query(sql, params){
+    async query(sql, params) {
         try {
             await this._createConnection(this.db);
-            const [results,field]= await this.connection.execute(sql,params);
+            const [results, field, error] = await this.connection.execute(sql, params);
+            if (error) throw error;
             await this._dropConnection();
 
             return results;
 
         } catch (error) {
-            
+            throw error;
         }
     }
 
