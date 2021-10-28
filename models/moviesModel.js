@@ -1,4 +1,3 @@
-// import movies from '../data/movies.js';
 import connection from '../mysql/dbManager.js';
 
 class MoviesModel {
@@ -9,7 +8,7 @@ class MoviesModel {
             )
             return result;
         } catch (error) {
-
+            throw error;
         }
     }
     async getMovieById(id) {
@@ -19,7 +18,7 @@ class MoviesModel {
             )
             return result;
         } catch (error) {
-            console.log(error);
+            throw error;
         }
     }
     async removeMovie(id) {
@@ -29,7 +28,17 @@ class MoviesModel {
             )
             return result;
         } catch (error) {
-            console.log(error);
+            throw error;
+        }
+    }
+    async insertMovie(title, poster, synopsis, genres, year, director, actors) {
+        try {
+            const result = await connection.query(
+                `INSERT INTO movie (title, poster, synopsis, genres, year, director, actors) VALUES (?, ?, ?, ?, ?, ?, ?)`, [title, poster, synopsis, genres, year, director, actors]
+            )
+            return result;
+        } catch (error) {
+            throw error;
         }
     }
 }

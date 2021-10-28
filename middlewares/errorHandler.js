@@ -13,5 +13,6 @@ export const dbErrorHandler = (error, req, res, next) => {
 }
 
 export const genericErrorHandler = (error, req, res, next) => {
-    res.status(500).json("Generic error" + error.message)
+    console.log(error);
+    res.status(500).json("Generic error: " + error.message)
 }
